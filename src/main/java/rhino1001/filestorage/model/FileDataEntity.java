@@ -11,16 +11,16 @@ public class FileDataEntity {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @Column(nullable = false)
-    private String dirPath;
+    @Column(nullable = false, updatable = false)
+    private String dir;
 
     @Column(nullable = false, unique = true)
     private String fileName;
 
     private FileDataEntity() {}
 
-    public FileDataEntity(String dirPath, String fileName) {
-        this.dirPath = dirPath;
+    public FileDataEntity(String dir, String fileName) {
+        this.dir = dir;
         this.fileName = fileName;
     }
 
@@ -36,11 +36,11 @@ public class FileDataEntity {
         this.fileName = fileName;
     }
 
-    public String getDirPath() {
-        return dirPath;
+    public String getDir() {
+        return dir;
     }
 
-    public void setDirPath(String dirPath) {
-        this.dirPath = dirPath;
+    public void setDir(String dir) {
+        this.dir = dir;
     }
 }
