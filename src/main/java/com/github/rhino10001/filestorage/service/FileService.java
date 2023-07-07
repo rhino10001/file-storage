@@ -1,8 +1,8 @@
 package com.github.rhino10001.filestorage.service;
 
+import com.github.rhino10001.filestorage.dto.FileDataDTO;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
-import com.github.rhino10001.filestorage.dto.FileDataDTO;
 
 import java.util.List;
 

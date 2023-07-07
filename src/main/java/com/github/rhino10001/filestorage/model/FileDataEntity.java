@@ -17,7 +17,8 @@ public class FileDataEntity {
     @Column(nullable = false, unique = true)
     private String fileName;
 
-    private FileDataEntity() {}
+    private FileDataEntity() {
+    }
 
     public FileDataEntity(String dir, String fileName) {
         this.dir = dir;
