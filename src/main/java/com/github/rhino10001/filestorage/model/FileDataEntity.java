@@ -1,4 +1,4 @@
-package rhino1001.filestorage.model;
+package com.github.rhino10001.filestorage.model;
 
 import jakarta.persistence.*;
 

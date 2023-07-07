@@ -1,15 +1,15 @@
-package rhino1001.filestorage.service.impl;
+package com.github.rhino10001.filestorage.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import rhino1001.filestorage.dto.FileDataDTO;
-import rhino1001.filestorage.model.FileDataEntity;
-import rhino1001.filestorage.repository.FileDataRepository;
-import rhino1001.filestorage.repository.FileRepository;
-import rhino1001.filestorage.service.FileService;
+import com.github.rhino10001.filestorage.dto.FileDataDTO;
+import com.github.rhino10001.filestorage.model.FileDataEntity;
+import com.github.rhino10001.filestorage.repository.FileDataRepository;
+import com.github.rhino10001.filestorage.repository.FileRepository;
+import com.github.rhino10001.filestorage.service.FileService;
 
 import java.io.File;
 import java.util.List;

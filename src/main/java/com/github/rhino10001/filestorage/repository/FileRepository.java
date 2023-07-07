@@ -1,4 +1,4 @@
-package rhino1001.filestorage.repository;
+package com.github.rhino10001.filestorage.repository;
 
 import org.springframework.web.multipart.MultipartFile;
 

@@ -1,4 +1,4 @@
-package rhino1001.filestorage;
+package com.github.rhino10001.filestorage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

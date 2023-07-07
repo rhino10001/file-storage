@@ -1,9 +1,9 @@
-package rhino1001.filestorage.repository.imp;
+package com.github.rhino10001.filestorage.repository.imp;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
-import rhino1001.filestorage.repository.FileRepository;
+import com.github.rhino10001.filestorage.repository.FileRepository;
 
 import java.io.*;
 import java.nio.file.Files;
