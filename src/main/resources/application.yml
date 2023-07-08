@@ -1,0 +1,22 @@
+server:
+  port: "8081"
+
+spring:
+  database:
+    driverClassName: "org.postgresql.Driver"
+  datasource:
+    password: "postgres"
+    url: "jdbc:postgresql://localhost:5433/postgres"
+    username: "postgres"
+  sql:
+    init:
+      mode: "always"
+
+servlet:
+  multipart:
+    max-file-size: "10240KB"
+    max-request-size: "10272KB"
+
+storage:
+  rootLocation: "files"
+  bufferSize: "1024"
