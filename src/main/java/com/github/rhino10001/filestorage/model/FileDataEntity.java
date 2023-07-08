@@ -44,4 +44,8 @@ public class FileDataEntity {
     public void setDir(String dir) {
         this.dir = dir;
     }
+
+    public String getFileSystemName() {
+        return id + "-" + fileName;
+    }
 }

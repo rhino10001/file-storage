@@ -65,8 +65,9 @@ public class FileRepositoryImpl implements FileRepository {
     }
 
     @Override
-    public String getDestDir(String fileName) {
-        int hash = Math.abs(fileName.hashCode() % 10000);
-        return rootLocation + File.separator + hash / 100 + File.separator + hash % 100;
+    public String getDestDir() {
+        return rootLocation + File.separator +
+               (int) (Math.random() * 100) + File.separator +
+               (int) (Math.random() * 100);
     }
 }

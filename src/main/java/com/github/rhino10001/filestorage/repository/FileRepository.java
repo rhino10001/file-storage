@@ -6,7 +6,7 @@ public interface FileRepository {
 
     void write(MultipartFile file, String dir, String fileName);
 
-    String getDestDir(String fileName);
+    String getDestDir();
 
     void delete(String dir, String fileName);
 }

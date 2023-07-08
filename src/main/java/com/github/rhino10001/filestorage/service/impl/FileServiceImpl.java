@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -38,26 +36,30 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public FileDataResponse saveFile(MultipartFile file) {
         String fileName = file.getOriginalFilename();
-        String destDir = fileRepository.getDestDir(fileName);
+        String destDir = fileRepository.getDestDir();
         FileDataEntity fileData = fileDataRepository.save(new FileDataEntity(destDir, fileName));
-        fileRepository.write(file, fileData.getDir(), fileData.getFileName());
+        try {
+            fileRepository.write(file, fileData.getDir(), fileData.getFileSystemName());
+        } catch (Exception e) {
+            fileDataRepository.delete(fileData);
+            throw e;
+        }
         return new FileDataResponse(fileData.getId(), fileData.getFileName());
     }
 
     @Override
     public Resource getFileAsResource(long id) {
         FileDataEntity fileData = fileDataRepository.findById(id).orElseThrow(NoSuchElementException::new);
-        File source = new File(fileData.getDir(), fileData.getFileName());
+        File source = new File(fileData.getDir(), fileData.getFileSystemName());
         return new FileSystemResource(source);
     }
 
     @Override
     public void deleteFile(long id) {
         FileDataEntity fileData = fileDataRepository.findById(id).orElseThrow(NoSuchElementException::new);
-        fileRepository.delete(fileData.getDir(), fileData.getFileName());
+        fileRepository.delete(fileData.getDir(), fileData.getFileSystemName());
         fileDataRepository.deleteById(id);
     }
 }

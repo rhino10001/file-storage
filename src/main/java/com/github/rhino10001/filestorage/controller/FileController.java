@@ -46,9 +46,10 @@ public class FileController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Resource> download(@PathVariable long id) {
         Resource resource = fileService.getFileAsResource(id);
+        String fileName = resource.getFilename().split("-", 2)[1];
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(HttpHeaders.CONTENT_DISPOSITION,
-                String.format("attachment; filename=\"%s\"", resource.getFilename()));
+                String.format("attachment; filename=\"%s\"", fileName));
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .headers(responseHeaders)
